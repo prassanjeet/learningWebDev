@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>HTML 5</title>
+    <style>
+        div{
+            float:left;
+            margin: 3px;
+        }
+    </style>
+    <script type="text/javascript">
+        function doIt(){
+            if(window.File){
+                document.getElementById("output").innerHTML = "Suported<br>";
+            }else{
+                document.getElementById("output").innerHTML = "Not Supported <br>";
+            }
+            if(window.FileReader){
+                document.getElementById("output").innerHTML += "Suported<br>";
+            }else{
+                document.getElementById("output").innerHTML += "Not Supported <br>";
+            }
+            if(window.FileList){
+                document.getElementById("output").innerHTML += "Suported<br>";
+            }else{
+                document.getElementById("output").innerHTML += "Not Supported <br>";
+            }
+            if(window.Blob){
+                document.getElementById("output").innerHTML += "Suported<br>";
+            }else{
+                document.getElementById("output").innerHTML += "Not Supported <br>";
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <button id="go" onclick="doIt()">Go</button><br><br>
+
+    <strong>HTML5 File API Objects:</strong><br>
+    <div id="types">
+        File<br>
+        FileReader<br>
+        Filelist<br>
+        Blob<br>
+    </div>
+    <div id="output"></div>  
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <input type="file" id="files" multiple />
+    <br><br>
+    <span id="list"></span>
+<!--Writing script in the body to access the objects in the page  -->
+    <script type="text/javascript">
+    document.getElementById("files").addEventListener("change",fileSelect,false);
+
+    function fileSelect(evt){
+        var upped = evt.target.files; //file list object
+
+        // List Properties
+        var output = "";
+        for(i=0; i<=upped.length; i++){
+            output = upped[i].name + ' (' + upped[i].type + ' )<br>' + upped[i].size
+                        + ' bytes<br>last modified: ' + upped[i].lastModifiedDate;
+            document.getElementById("list").innerHTML +=output+'<br><br>';
+        }
+    }
+    </script>
+</body>
+
+</html>

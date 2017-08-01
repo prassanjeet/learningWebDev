@@ -1,0 +1,34 @@
+<html>
+<title>Javscript</title>
+
+<head>
+<script type="text/javascript">
+	var counter = 0;
+	function travelMethod(){
+		var str = document.getElementById("travel").innerHTML;
+		counter+=1;
+		if(counter == 1){
+			var mode = str.replace("car","plane");
+		}
+		if(counter == 2){
+			var mode = str.replace("plane","bus");
+		}
+		if(counter == 3){
+			var mode = str.replace("bus","train");
+		}
+		if(counter == 4){
+			var mode = str.replace("train","car");
+		}
+		if(counter >= 4){
+			counter=0;
+		}
+		document.getElementById("travel").innerHTML = mode;
+	}
+</script>
+</head>
+
+<body>
+<p id="travel">I prefer to travel by car.</p>
+<button onclick="travelMethod()" value="up">Up</button>
+</body>
+</html>

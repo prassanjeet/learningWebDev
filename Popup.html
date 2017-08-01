@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Pop Up using Javascript</title>
+	<script type="text/javascript">
+	function popUp(event, text, color, textCol){
+		var popElem = document.getElementById("PopUp");
+		var x = window.event.clientX + 15;
+		var y = window.event.clientY + 15;
+		popElem.style.left = x + "px";
+		popElem.style.top = y + "px";
+		//popElem.style.z-index = 0 ;
+		popElem.style.display = "block";
+		popElem.style.backgroundColor = color;
+		popElem.style.color = textCol;
+		popElem.innerHTML = text;
+	}
+	function clearPopUp(){
+		var popElement = document.getElementById('PopUp');
+		popElement.style.display = "none";
+	}
+	</script>
+	<style>
+		
+		#menu{
+			height: 40px;
+			width: 500px;
+			border: solid black 1px;
+			text-align: center;
+			font-family: Calibri;
+			font-weight: bolder;
+			font-size:16px;
+			line-height: 40px;
+			color: #5fbf0f;
+		}
+		#home{
+			height:40px;
+			width:100px;
+			float: left;
+			background-image: url("home.png");
+		}
+		#home:hover{
+			cursor: pointer;
+			background-image: url("home-c.png");
+			color: #cccccc;
+		}
+		#about{
+			height:40px;
+			width:100px;
+			float: left;
+			background-image: url("about.png");
+		}
+		#about:hover{
+			cursor: pointer;
+			background-image: url("about-c.png");
+			color: #cccccc;
+		}
+		#faq{
+			height:40px;
+			width:100px;
+			float: left;
+			background-image: url("faq.png");
+		}
+		#faq:hover{
+			cursor: pointer;
+			background-image: url("faq-c.png");
+			color: #cccccc;
+		}
+		#careers{
+			height:40px;
+			width:100px;
+			float: left;
+			background-image: url("careers.png");
+		}
+		#careers:hover{
+			cursor: pointer;
+			background-image: url("careers-c.png");
+			color: #cccccc;
+		}
+		#contact{
+			height:40px;
+			width:100px;
+			float: left;
+			background-image: url("contact.png");
+		}
+		#contact:hover{
+			cursor: pointer;
+			background-image: url("contact-c.png");
+			color: #cccccc;
+		}
+		#question{
+			height: 60px;
+			width: 500px;
+			position: relative;
+			top: 10px;
+		}
+		#graphs{
+			height: 1000px;
+			width: 800px;
+			border: solid black 1px;
+		}
+	</style>
+</head>
+
+<div id="menu">
+	<div id="home">Home</div>
+	<div id="about">About Us</div>
+	<div id="faq">FAQ</div>
+	<div id="careers">Careers</div>
+	<div id="contact">Contact Us</div>
+</div>
+
+<body>
+<div id="question">
+How many ounces are there in a pound? <br/><br/>
+<input name="1a" type="button" value="8" onclick="popUp(event,'Sorry, try again','red','white')" onmouseout="clearPop(this)" />
+<input name="1b" type="button" value="12" onclick="popUp(event,'Sorry, try again','red','white')" onmouseout="clearPop(this)" />
+<input name="1c" type="button" value="14" onclick="popUp(event,'Sorry, try again','red','white')" onmouseout="clearPop(this)" />
+<input name="1d" type="button" value="16" onclick="popUp(event,'That\'s right','green','yellow')" onmouseout="clearPop(this)" />
+</div>
+
+<!-- PopUp Container -->
+<div id="PopUp" style="display: none; position: absolute; border: solid black 1px; padding: 10px; font-family: Calibri; font-size: 16px;">
+<span id="PopUpText"><!-- Text will autofill here --></span></div>
+<!-- End PopUp Container -->
+<br/><br/>
+<div id="graphs">
+<div class='tableauPlaceholder' id='viz1501127691676' style='position: relative; z-index: 0; top: 50px; left: 0px' >
+	<noscript>
+		<a href=''><img alt='Likert Scale Category ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Li&#47;LikertScaleChart_1&#47;LikertScaleCategory&#47;1_rss.png' style='border: none' /></a>
+	</noscript>
+	<object class='tableauViz'  style='display:none;'>
+		<param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> 
+		<param name='site_root' value='' />
+		<param name='name' value='LikertScaleChart_1&#47;LikertScaleCategory' />
+		<param name='tabs' value='no' />
+		<param name='toolbar' value='no' />
+		<param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Li&#47;LikertScaleChart_1&#47;LikertScaleCategory&#47;1.png' /> 
+		<param name='animate_transition' value='yes' />
+		<param name='display_static_image' value='yes' />
+		<param name='display_spinner' value='yes' />
+		<param name='display_overlay' value='yes' />
+		<param name='display_count' value='yes' />
+	</object>
+</div>                
+<script type='text/javascript'>                    
+	var divElement = document.getElementById('viz1501127691676');                    
+	var vizElement = divElement.getElementsByTagName('object')[0];                    
+	vizElement.style.width='100%';
+	vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    
+	var scriptElement = document.createElement('script');                    
+	scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    
+	vizElement.parentNode.insertBefore(scriptElement, vizElement);                
+</script>
+</div>
+</body>
+</html>

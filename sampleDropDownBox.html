@@ -1,0 +1,62 @@
+<html>
+<head>
+
+<script type="text/javascript">
+
+var categories = [];categories["startList"] = ["Apparel","Books"]
+categories["Apparel"] = ["Men","Women"];
+categories["Books"] = ["Biography","Fiction","Nonfiction"];
+categories["Men"] = ["Shirts","Ties","Belts"];
+categories["Women"] = ["Blouses","Skirts","Scarves"];
+categories["Biography"] = ["Contemporay","Historical","Other"];
+categories["Fiction"] = ["Science","Romance"];
+categories["Nonfiction"] = ["How-To","Travel","Cookbooks"];
+
+var nLists = 3; // number of lists in the set
+
+function fillSelect(currCat,currList){
+var step = Number(currList.name.replace(/\D/g,""));
+for (i=step; i<nLists+1; i++) {
+document.forms[0]['List'+i].length = 1;
+document.forms[0]['List'+i].selectedIndex = 0;
+}
+var nCat = categories[currCat];
+for (each in nCat) 	{
+var nOption = document.createElement('option'); 
+var nData = document.createTextNode(nCat[each]); 
+nOption.setAttribute('value',nCat[each]); 
+nOption.appendChild(nData); 
+currList.appendChild(nOption); 
+} 
+}
+
+function getValue(isValue) {
+alert(isValue);
+}
+
+function init() {
+fillSelect('startList',document.forms[0]['List1'])
+}
+
+navigator.appName == "Microsoft Internet Explorer" ? attachEvent('onload', init, false) : addEventListener('load', init, false);	
+
+</script>
+</head>
+
+<body>
+<form action="">
+<select name='List1' onchange="fillSelect(this.value,this.form['List2'])">
+<option selected>Make a selection</option>
+</select>
+&nbsp;
+<select name='List2' onchange="fillSelect(this.value,this.form['List3'])">
+<option selected>Make a selection</option>
+</select>
+&nbsp;
+<select name='List3' onchange="getValue(this.value)">
+<option selected >Make a selection</option>
+</select>
+</form>
+
+</body>
+</html>

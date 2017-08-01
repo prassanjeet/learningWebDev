@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>HTML 5</title>
+    <style>
+        .green{
+            background-color: #c4ff00;
+        }
+        .blue{
+            background-color: #00c4ff;
+        }
+        #notify{
+            display: none;
+            font-family: Calibri;
+            font-weight: bold;
+            background-color: #ffd800;
+            text-align: center;
+            border: 5px solid black;
+        }
+    </style>
+    <script type="text/javascript">
+        function showIt(){
+            document.getElementById("notify").style.display="block";
+        }
+        function hideIt(){
+            document.getElementById("notify").style.display="none";
+        }
+    </script>
+</head>
+
+<body>
+    <dialog id="notify">You clicked the button!!!<br><br>
+        <button id="exit" onclick="hideIt()">Exit</button>
+    </dialog>
+    <br>
+    <br>
+    <button id="show" onclick="showIt()">Show</button>
+    <p>The meeting is at <time>10:30</time> on <mark class="green">Friday</mark></p>
+    <blockquote>The AGM occurs in Chicago on <time datetime="2015-06-01"><mark class="blue">June 1st 2015</mark></time></blockquote>
+    <form action="submit.asp" method="get">
+        Username: <input type="text" name="usr_name" /><br>
+        Password: <input type="password" name="password"/><br>
+        Encryption: <keygen name="security" /><br><br>
+    </form>
+    <p>AJAX stands for Asymetric Javascript and XML. To learn AJAX you need to knowabout the use of the <mark>XMLHttpRequest</mark> Object.</p>
+    <p>AJAX stands for Asymetric Javascript and XML. To learn AJAX you need to knowabout the use of the <mark><wbr>XML<wbr>Http<wbr>Request</mark> Object.</p>
+</body>
+
+</html>

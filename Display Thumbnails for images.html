@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>HTML 5</title>
+    <style>
+        .thumb{
+            height: 100px;
+            margin: 5px;
+            border: 2px solid black;
+        }
+    </style>
+    <script type="text/javascript">
+       
+    </script>
+</head>
+
+<body>
+    
+    <input type="file" id="files" multiple />
+    <br><br>
+    <span id="list"></span>
+<!--Writing script in the body to access the objects in the page  -->
+    <script type="text/javascript">
+    document.getElementById("files").addEventListener("change",fileSelect,false);
+
+    function fileSelect(evt){
+        var upped = evt.target.files; // Filelist object
+        var output = "";
+
+        for(i=0; i<=upped.length; i++){
+            files = upped[i];
+
+            // only process image files
+            if(files.type.substring(0,5)!="image"){
+                alert("Not an image file!");
+            }else{
+                var reader = new FileReader();
+                // Capture File Information
+                reader.onload = (function(makeThumb){
+                    return function(e){
+                        // Create Thumbnail using a span
+                        var span = document.createElement("span");
+                        span.innerHTML=
+                        ['<img class="thumb" src="',e.target.result,'" title="',escape(makeThumb.name),'" />'].join("");
+                        document.getElementById("list").insertBefore(span,null);
+                    };
+                })(files);
+
+                // Process the file as a data URL
+                reader.readAsDataURL(files);
+            }
+        }
+    }
+    </script>
+</body>
+
+</html>
