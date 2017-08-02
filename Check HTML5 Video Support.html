@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>HTML 5</title>
+<style>
+    div {
+        float: left;
+    }
+</style>
+<script type="text/javascript">
+    function doIt(){
+       // supports the HTML5 video tag
+       vid = !!document.createElement('video').canPlayType;
+       if(vid == true){
+           outputTxt = "Congratulations! Your browser supports HTML5 Video Tag."
+       }else{
+           outputTxt = "Sorry, your browser doesn't support HTML5 video tag."
+       }
+       document.getElementById("output").innerHTML = outputTxt;
+    }
+</script>
+</head>
+
+<body>
+    <button id="go" onclick="doIt()">GO</button><br/><br/>
+    
+    <span id="output"></div>
+</body>
+</html>

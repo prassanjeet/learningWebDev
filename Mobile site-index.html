@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>HTML 5</title>
+<script type="text/javascript">
+    function doIt(){
+        var W = window.screen.availWidth;
+        var H = window.screen.availHeight;
+        document.getElementById("output").innerHTML = "Height = " + H + '<br>Width = ' + W;
+    }
+    alert(window.orientation);
+    screen.addEventListener("orientationChange",function(){
+        // insert your code here
+
+    });
+</script>
+<style>
+    @media screen and (orientation:portrait){
+        /* portrait styles */
+    }
+    @media screen and (orientation:landscape){
+        /* landscape styles */
+    }
+</style>
+</head>
+
+<body>
+    <a href="tel:+917769876695">+91-7769876695</a>
+    <button onclick="doIt()">Detect</button><br><br>
+    <span id="output"></span>
+</body>
+</html>

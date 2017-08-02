@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Tableau JavaScript API Tutorial</title>
+    <!-- <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto" type="text/css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
+        crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="bootstrap.css">
+    <script type="text/javascript" src="https://public.tableau.com/javascripts/api/tableau-2.min.js"></script>
+    <script type="text/javascript" src="tableau-tutorial.js"></script>
+    <script type="text/javascript" src="inputTypes.js"></script>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="span3"><img src="logo.png"></div>
+            <h2 class="span7 pagination-centered">Javascript API Tutorial</h2>
+        </div>
+        <div class="row">
+            <h3 class="offset3 span7 pagination-centered" id="sheetName"></h3>
+        </div>
+        <div class="row">
+            <!-- All of our work will happen here -->
+            <!-- Viz located at https://public.tableau.com/views/Presents/TreeMap' -->
+            <ul id="menu" class="nav nav-list offset1 span2">
+                <!-- This is the menu where we will add all of our buttons. -->
+                 <li class='nav-header'>Switching Views</li> 
+                 <li><a onclick="switchView('LineChart')">LineChart</a></li>
+                 <li><a onclick="switchView('TreeMap')">TreeMap</a></li>
+                 <li><a onclick="switchView('MyDashboard')">Dashboard</a></li>
+                 <li class='nav-header'>Filtering and Selecting Marks</li>
+                 <li><a onclick="showOnly('Category','Book')">Show Only Books</a></li>
+                 <li><a onclick="alsoShow('Category',['Gift Certificates','Doll','Electronics','Blocks'])">Also show Certificates, Dolls, Electronics, Blocks</a></li>
+                 <li><a onclick="dontShow('Category','Gift Certificates')">Don't show gift certificates</a></li>
+                 <li><a onclick="clearFilter('Category')">Clear the Category Filter</a></li>
+                 <li><a onclick="selectMarks('Category','Electronics')">Select Electronics Marks</a></li>
+                 <li class='nav-header'>Asynchronous Programming</li> 
+                 <li><a onclick="problemExample()">Problem Example</a></li>
+                 <li><a onclick="solution()">Problem Solution</a></li>
+                 <li><a onclick="toggleSelectionAlert()">Toggle Selection Alert</a></li>
+            </ul>
+
+            <ul id="menu2" class="nav nav-list offset1 span2">
+                <li class='nav-header'>Advanced Filters</li> 
+                <li><a onclick="showRange('SUM(Number of Toys)', 2, 5)">Filter to Range</a></li>
+                <li><a onclick="showOnly('YEAR(Date)',['1999','2000','2001','2002','2003'])">Show '99 to 2003 Categorically</a></li>
+                <li><a onclick="showDateRange('Date','1995','2006')">Show '95 through 2005 with Range</a></li>
+                <li><a onclick="showLastNYears('Date', 10)">Show Last 10 Years</a></li>
+                <li><a onclick="showLastNYears('Date', 10, '2000')">Show '90-2000'</a></li>   
+                <li class='nav-header'>Utility Functions</li> 
+                <li><a onclick="showHide()">Show/Hide</a></li>    
+                <li><a onclick="exportPDF()">Export PDF</a></li>                                      
+                <li><a onclick="resize(400,400)">Make Small</a></li>                                      
+                <li><a onclick="resize(600,500)">Make Normal</a></li>                                      
+                <li><a onclick="dispose()">Dispose Viz</a></li>                                         
+                <li><a><select id="yearSelect" onchange="showDateRange('Date','1985',this.value)"></select></a></li>                        
+            </ul>
+            
+            <div id="viz" class="row"></div>
+
+            <!-- This is the end of the section where we will do our work. -->
+        </div>   
+    </div>
+</body>
+
+</html>

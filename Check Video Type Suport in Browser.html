@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>HTML 5</title>
+<style>
+    div {
+        float: left;
+    }
+</style>
+<script type="text/javascript">
+    function doIt(){
+        vid = document.createElement('video');
+
+        outputTxt = "MPEG4: " + 
+            vid.canPlayType('video/mp4; codecs="mp4v.20.8"') + '<br>' +
+            "H.264: " + 
+            vid.canPlayType('video/mp4; codecs="avc1.42E01E, mp4a.40.2"') + '<br>' +
+            "OGG Theora/Vorbis: " + 
+            vid.canPlayType('video/ogg; codecs="mp4v.20.8"') + '<br>' +
+            "WebM: " + 
+            vid.canPlayType('video/webm; codecs="vp8,vorbis"') + '<br>' +
+            "iPhone/Mac: " + 
+            vid.canPlayType('video/mp4; codecs="avc1.42E01E, mp4a.40.2"') + '<br>' ;
+
+            document.getElementById("output").innerHTML = outputTxt;
+       }
+</script>
+</head>
+
+<body>
+    <button id="go" onclick="doIt()">GO</button><br/><br/>
+    
+    <span id="output">
+        MPEG4:<br>
+        H.264:<br>
+        OGG Theora/Vorbis:<br>
+        WebM:<br>
+        iPhone/Mac:<br>
+    </span>
+</body>
+</html>

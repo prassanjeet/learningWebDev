@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>HTML 5</title>
+    <style>
+        
+    </style>
+    <script type="text/javascript">
+        function doIt(){
+            var result = "";
+            localStorage.setItem("company3","Accenture");
+            // sessionStorage is used for temporary data while localStorage is more like Cookies
+            result = localStorage.getItem("company1");
+            document.getElementById("output").innerHTML = result;
+        }
+    </script>
+</head>
+
+<body>
+    <button id="go" onclick="doIt()">Go</button>
+    <span id="output"></span>    
+</body>
+
+</html>
