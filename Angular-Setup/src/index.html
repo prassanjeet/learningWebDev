@@ -2,12 +2,17 @@
 <html lang="en" ng-app="myApp">
 
 <head>
-    <title>Angular JS Setup</title>
+    <title>Filters</title>
     <script type="text/javascript" src="../libs/angular.js"></script>
     <script type="text/javascript" src="app.js"></script>
 </head>
-
-<body ng-controller="MainController">
+<body>
+    <div ng-controller="MainController as main">
+        <p>First Name: {{main.user.firstName | uppercase}}</p>
+        <p>Last Name: {{main.user.lastName | uppercase}}</p>
+        <p>Account Type: {{main.user.accountType | lowercase}}</p>
+        <p>Balance: {{main.user.balance | currency: 'USD $':0}}</p>
+    </div>
 </body>
 
 </html>
