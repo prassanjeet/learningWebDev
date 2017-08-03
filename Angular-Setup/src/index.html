@@ -2,83 +2,16 @@
 <html lang="en" ng-app="myApp">
 
 <head>
-    <title>Scope Functions</title>
+    <title>Filters</title>
     <script type="text/javascript" src="../libs/angular.js"></script>
     <script type="text/javascript" src="app.js"></script>
 </head>
 <body>
-    <!-- Part 1 -->
-    <p><h3>Part 1</h3></p>
-    <div ng-controller="ParentController">
-
-        <input type="text" ng-model="model.name">
-        <p>This is the parent: {{ model.name }}</p>
-
-        <div ng-controller="ChildController">
-
-            <input type="text" ng-model="model.name">
-            <p>This is the child: {{ model.name }}</p>
-
-        </div>
-
-    </div>
-    <div ng-controller="ParentController">
-    
-        <input type="text" ng-model="model.name">
-        <p>This is the second parent: {{ model.name }}</p>
-
-    </div>
-    <div ng-controller="indieController">
-
-    <input type="text" ng-model="model.name">
-    <p>This is the indie controller: {{ model.name }}</p>
-
-    </div>
-
-    <!-- Part 2  -->
-    <p><h3>Part 2</h3></p>
-<!-- <div ng-controller="ParentController"> -->
-    <div ng-controller="FirstController">
-
-        <input type="text" ng-model="model.name">
-        <p>This is the First Container: {{ model.name }}</p>
-
-    </div>
-    <div ng-controller="SecondController">
-
-        <input type="text" ng-model="model.name">
-        <p>This is the Second Controller: {{ model.name }}</p>
-
-    </div>
-<!-- </div> -->
-
-<!-- part 3  Controller as syntax-->
-    <p><h3>Part 3</h3></p>
-    <div ng-controller="Parent" style="border: 1px solid black; margin: 10px">
-        <p>This is the parent: {{parentMessage}}</p>
-        <div ng-controller="FirstChild" style="border: 1px solid black; margin: 10px">
-            <p>This is the parent: {{parentMessage}}</p>
-            <p>This is the first Child: {{firstMessage}}</p>
-        </div>
-        <div ng-controller="SecondChild" style="border: 1px solid black; margin: 10px">
-            <p>This is the parent: {{parentMessage}}</p>
-            <p>This is the second Child: {{secondMessage}}</p>        
-        </div>
-
-    </div>
-    <p><h3>Part 3 Controller as Syntax</h3></p>
-    <div ng-controller="ParentCAS as parent" style="border: 1px solid black; margin: 10px">
-        <p>This is the parent: {{parent.message}}</p>
-        <div ng-controller="FirstChildCAS as first" style="border: 1px solid black; margin: 10px">
-            <p>This is the parent: {{parent.message}}</p>
-            <p>This is the first Child: {{first.message}}</p>
-        </div>
-        <div ng-controller="SecondChildCAS as second" style="border: 1px solid black; margin: 10px">
-            <p>This is the parent: {{parent.message}}</p>
-            <p>This is the second Child: {{second.message}}</p>  
-            <p>Randomise: {{second.value}}</p>      
-        </div>
-
+    <div ng-controller="MainController as main">
+        <p>First Name: {{main.user.firstName | uppercase}}</p>
+        <p>Last Name: {{main.user.lastName | uppercase}}</p>
+        <p>Account Type: {{main.user.accountType | lowercase}}</p>
+        <p>Balance: {{main.user.balance | currency: 'USD $':0}}</p>
     </div>
 </body>
 
