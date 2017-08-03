@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html>
 <head>
@@ -37,43 +36,3 @@
 <span id="output"></span>
 </body>
 </html>
-=======
-<!DOCTYPE html>
-<html>
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<title>Dynamically add a field to the form</title>
-	<script type="text/javascript">
-		var counter = 0;
-		function addFields(){
-			counter++;
-			var newElem = document.getElementById("form").cloneNode(true);
-			newElem.id = "";
-			var addField = newElem.childNodes;
-			for (var i = 0; i < addField.length; i++){
-				var name = addField[i].name;
-				if(name){
-					addField[i].name = name + counter;
-				}
-				var insert = document.getElementById("newForm");
-				insert.parentNode.insertBefore(newElem, insert);
-			}
-		}
-		function getId(elem){
-			document.getElementById("output").innerHTML = "Element " + elem.id + " Name " + elem.name;
-		}
-	</script>
-</head>
-<body>
-<div id="form">
-<label for="input">Enter a value</label>
-<input type="text" id="input" name="input" onmouseover = "getId(this)"/>
-</div>
-<span id="newForm"></span>
-<br/><br/>
-<input type="button" onClick="addFields()" value = "ADD" />
-<br/><br/>
-<span id="output"></span>
-</body>
-</html>
->>>>>>> d9de8fdf651a9639272074a99a5c5076a6900d63
