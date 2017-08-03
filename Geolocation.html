@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,3 +28,34 @@
 	<button onclick="findLocation()">Try It</button>
 </body>
 </html>
+=======
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Geolocation</title>
+	<script type="text/javascript">
+		function findLocation(){
+			if (navigator.geolocation){
+				navigator.geolocation.getCurrentPosition(showLocation);
+			}
+			else{
+				alert("Geolocation API won't work with this browser.");
+			}
+		}
+		function showLocation(position){
+			var latitude = position.coords.latitude;
+			var longitude = position.coords.longitude;
+			var position = latitude + "," + longitude;
+			alert("Latitude : " + latitude + " Longitude : " + longitude);
+			
+			window.location.href = "http://maps.googleapis.com/maps/api/staticmap?center="+ position + "&zoom=14&size=400x300&sensor=false";
+		}
+	</script>
+</head>
+<body>
+	<p id="locate">Click the button to see where you are:</p>
+	<img src="globe.jpg" width="275" height="275" alt="Click here to locate yourself" />
+	<button onclick="findLocation()">Try It</button>
+</body>
+</html>
+>>>>>>> d9de8fdf651a9639272074a99a5c5076a6900d63
